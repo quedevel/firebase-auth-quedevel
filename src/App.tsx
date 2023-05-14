@@ -1,7 +1,7 @@
-import Navigation from "./components/Navigation";
-import { Outlet } from "react-router-dom";
-import { AuthProvider } from "./contexts/AuthContext";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import Navigation from "./components/Navigation"
+import { Outlet } from "react-router-dom"
+import { AuthProvider } from "./contexts/AuthContext"
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
           <Outlet />
         </div>
       </AuthProvider>
-  );
+  )
 }
 
-export default App;
+export default App
