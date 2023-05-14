@@ -17,11 +17,13 @@ export default function EventPage() {
         }
     }, [user, loading, navigate]);
 
+    console.log('user', user)
+
     return (
         <>
             {user &&
                 <Card style={{width: '18rem'}}>
-                <Card.Header>{user.displayName}</Card.Header>
+                    {user.displayName && <Card.Header>{user.displayName}</Card.Header>}
                 <ListGroup variant="flush">
                     <ListGroup.Item>{user.email}</ListGroup.Item>
                 </ListGroup>
