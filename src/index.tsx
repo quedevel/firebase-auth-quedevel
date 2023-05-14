@@ -2,6 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import HomePage from "./pages/HomePage";
+import EventPage from "./pages/EventPage";
+import LoginPage from "./pages/LoginPage";
 import ErrorPage from "./ErrorPage";
 import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -11,6 +14,11 @@ const router = createBrowserRouter([
         path: "/",
         element: <App/>,
         errorElement: <ErrorPage />,
+        children: [
+            { path: "/home", element: <HomePage/>},
+            { path: "/event", element: <EventPage/>},
+            { path: "/login", element: <LoginPage/>},
+        ]
     },
 ]);
 
