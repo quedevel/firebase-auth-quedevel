@@ -1,24 +1,20 @@
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import React, { useState, useEffect } from "react";
-import { useAuth } from "../contexts/AuthContext";
-import { auth } from "../firebase.config";
+import React, { useState, useEffect } from "react"
+import Container from 'react-bootstrap/Container'
+import Nav from 'react-bootstrap/Nav'
+import Navbar from 'react-bootstrap/Navbar'
+import { useAuth } from "../contexts/AuthContext"
+import { auth } from "../firebase.config"
 
 export default function Navigation() {
     const { user } = useAuth()
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(true)
 
-    const handleLogout = async () => {
-        await auth.signOut();
-    };
+    const handleLogout = async () => await auth.signOut()
 
     useEffect(() => {
-        if (!user) {
-            return;
-        }
+        if (!user) return
         setLoading(false)
-    }, [user, loading]);
+    }, [user, loading])
 
     return (
         <>
@@ -33,5 +29,5 @@ export default function Navigation() {
                 </Container>
             </Navbar>
         </>
-    );
+    )
 }

@@ -1,24 +1,22 @@
-import React, {useEffect} from "react";
-import {useLocation, useNavigate} from 'react-router-dom';
-import "firebase/app";
-import { auth } from "../firebase.config";
-import Button from 'react-bootstrap/Button';
-import {signInWithRedirect, GoogleAuthProvider, GithubAuthProvider} from "firebase/auth";
-import {useAuth} from "../contexts/AuthContext";
+import React, {useEffect} from "react"
+import Button from 'react-bootstrap/Button'
+import {useLocation, useNavigate} from 'react-router-dom'
+import "firebase/app"
+import {signInWithRedirect, GoogleAuthProvider, GithubAuthProvider} from "firebase/auth"
+import { auth } from "../firebase.config"
+import {useAuth} from "../contexts/AuthContext"
 
 export default function LoginPage(){
-    const { search } = useLocation();
-    const queryParams = new URLSearchParams(search);
+    const { search } = useLocation()
+    const queryParams = new URLSearchParams(search)
     const returnUrl = queryParams.get('returnUrl') || '/'
 
-    const { user } = useAuth();
-    const navigate = useNavigate();
+    const { user } = useAuth()
+    const navigate = useNavigate()
 
     useEffect(() => {
-        if (user) {
-            navigate(returnUrl);
-        }
-    }, [user, navigate, returnUrl]);
+        if (user) navigate(returnUrl)
+    }, [user, navigate, returnUrl])
 
     return (
         <div>
@@ -36,4 +34,4 @@ export default function LoginPage(){
             </Button>
         </div>
     )
-};
+}
