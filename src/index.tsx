@@ -8,7 +8,6 @@ import EventPage from "./pages/EventPage"
 import LoginPage from "./pages/LoginPage"
 import ErrorPage from "./pages/ErrorPage"
 import reportWebVitals from './reportWebVitals'
-import { AuthProvider } from "./contexts/AuthContext"
 
 const router = createBrowserRouter([
     {
@@ -17,7 +16,7 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage />,
         children: [
             { path: "/", element: <HomePage/> },
-            { path: "/event", element: <AuthProvider><EventPage /></AuthProvider> },
+            { path: "/event", element: <EventPage /> },
             { path: "/login", element: <LoginPage/> },
         ]
     },
