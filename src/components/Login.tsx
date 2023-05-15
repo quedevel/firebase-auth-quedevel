@@ -1,22 +1,22 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
-import {GithubAuthProvider, GoogleAuthProvider, signInWithRedirect} from "firebase/auth";
-import {auth} from "../firebase.config";
+import AuthService from "../service/AuthService";
 
 export default function Login(){
+    const authService = new AuthService();
     return (
         <>
             <h1 className='text-center'>Login</h1>
             <Button
                 className="mt-2"
                 variant="danger"
-                onClick={() => signInWithRedirect(auth, new GoogleAuthProvider())}>
+                onClick={() => authService.login('google')}>
                 Sign In with Google
             </Button>
             <Button
                 className="mt-2"
                 variant="dark"
-                onClick={() => signInWithRedirect(auth, new GithubAuthProvider())}>
+                onClick={() => authService.login('github')}>
                 Sign In with GitHub
             </Button>
         </>
