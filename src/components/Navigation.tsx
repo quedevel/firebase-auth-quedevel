@@ -4,17 +4,23 @@ import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import { useAuth } from "../contexts/AuthContext"
 import { auth } from "../firebase.config"
+import { useLocation, useNavigate } from "react-router-dom";
 
 export default function Navigation() {
     const { user } = useAuth()
     const [loading, setLoading] = useState(true)
 
-    const handleLogout = async () => await auth.signOut()
-
     useEffect(() => {
         if (!user) return
         setLoading(false)
     }, [user, loading])
+
+    const { pathname } = useLocation();
+    const navigate = useNavigate()
+
+    const handleLogout = async () => await auth.signOut().then(() => navigate('/'))
+
+    if (!user && pathname === '/login') return <></>
 
     return (
         <>

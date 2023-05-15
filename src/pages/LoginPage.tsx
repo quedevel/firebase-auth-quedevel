@@ -1,10 +1,8 @@
 import React, {useEffect} from "react"
-import Button from 'react-bootstrap/Button'
-import {useLocation, useNavigate} from 'react-router-dom'
 import "firebase/app"
-import {signInWithRedirect, GoogleAuthProvider, GithubAuthProvider} from "firebase/auth"
-import { auth } from "../firebase.config"
-import {useAuth} from "../contexts/AuthContext"
+import Login from "../components/Login";
+import {useLocation, useNavigate} from "react-router-dom";
+import {useAuth} from "../contexts/AuthContext";
 
 export default function LoginPage(){
     const { search } = useLocation()
@@ -15,23 +13,14 @@ export default function LoginPage(){
     const navigate = useNavigate()
 
     useEffect(() => {
-        if (user) navigate(returnUrl)
+        if(user) navigate(returnUrl)
     }, [user, navigate, returnUrl])
 
     return (
-        <div>
-            <Button
-                variant="danger"
-                onClick={() => signInWithRedirect(auth, new GoogleAuthProvider())}>
-                Sign In with Google
-            </Button>
-            <br/>
-            <Button
-                className="mt-2"
-                variant="dark"
-                onClick={() => signInWithRedirect(auth, new GithubAuthProvider())}>
-                Sign In with GitHub
-            </Button>
+        <div className="container min-vh-100 d-flex align-items-center justify-content-center">
+            <div className="d-flex flex-column bd-highlight mb-3">
+                <Login/>
+            </div>
         </div>
     )
 }
