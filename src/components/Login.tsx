@@ -1,6 +1,6 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
-import AuthService from "../service/AuthService";
+import AuthService from "../service/auth.service";
 
 export default function Login(){
     const authService = new AuthService();

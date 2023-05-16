@@ -17,7 +17,7 @@ export default function EventPage() {
         }
     }, [user, loading, navigate])
 
-    console.log(providerData)
+
     return (
         <>
             {user && providerData &&
