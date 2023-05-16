@@ -24,9 +24,10 @@ export default function Navigation() {
 
     return (
         <>
-            <Navbar bg="dark" variant="dark">
+            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
                 <Container>
-                    <Nav className="me-auto">
+                    <Nav></Nav>
+                    <Nav>
                         <Nav.Link href="/">Home</Nav.Link>
                         <Nav.Link href="/event">Event</Nav.Link>
                         {!user && <Nav.Link href="/login">Login</Nav.Link>}
